@@ -38,7 +38,7 @@ def auth_required(f):
     @wraps(f)
     def decorated(*args, **kwargs):
         auth = request.authorization
-        if auth and auth.username == 'admin' and auth.password == 'ams293031':
+        if auth and auth.username == 'admin' and auth.password == 'admin':
             return f(*args, **kwargs)
         return make_response('Unauthorized', 401, {'WWW-Authenticate': 'Basic realm="Login Required"'})
     return  decorated
